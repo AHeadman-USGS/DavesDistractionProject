@@ -2,8 +2,6 @@
 
 library(dataRetrieval)
 library(EGRET)
-library(ggplot2)
-library(scales)
 
 # functions used in the code
 # I currently commented out the "water years" offset and this is running off of calendar years.  
@@ -128,18 +126,19 @@ for (i in WaterYearsVect){
 library(gsplot)
 library(dinosvg)
 gs <- gsplot() %>% title("Green River at Green River, UT (09315000) \n1895-2014")
-for (i in WaterYearsVect){
+WaterYearsVectSHORT <- WaterYearsVect[1:30] # for debugging
+# to do: filter out NAs before creating lines
+for (i in WaterYearsVectSHORT){
   pltName = paste( 'Yr', i, sep = '' )
-  if (match(i, HighYrs, nomatch = 0) > 0){ #to do: add id
-    gs = lines(gs, df[,1], df[[pltName]], col = "blue")
+  if (match(i, HighYrs, nomatch = 0) > 0){ 
+    gs = lines(gs, df[,1], df[[pltName]], col = "blue", id = pltName, class='hidden')
   } else if (match(i, LowYrs, nomatch = 0) > 0){
-    gs = lines(gs, df[,1], df[[pltName]],col = "red")
+    gs = lines(gs, df[,1], df[[pltName]],col = "red", id = pltName, class='hidden')
   } else{
-    gs = lines(gs, df[,1], df[[pltName]],col = "grey", opacity='0.2')
-    #PlotItr = PlotItr + geom_line(aes_string(y=pltName), colour = "grey", alpha = 0.4)
+    gs = lines(gs, df[,1], df[[pltName]],col = "grey", opacity='0.2', id = pltName, class='hidden')
   }
 }
-
+gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335))
 svg(gs)
 #change to cubic feet per second
 #rm grey background, add titles
