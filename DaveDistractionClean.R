@@ -123,21 +123,24 @@ for (i in WaterYearsVect){
 
 ## Modification for making this interactive can happen from here on down.  It's not currently set to do anything too special.
 
-PlotItr = ggplot(df, aes(x))
+
+# MatchIhigh > 0 gets blue, MatchILow > 0 gets red, all others get grey
+library(gsplot)
+library(dinosvg)
+gs <- gsplot() %>% title("Green River at Green River, UT (09315000) \n1895-2014")
 for (i in WaterYearsVect){
-  MatchIhigh = match(i, HighYrs, nomatch = 0)
-  MatchILow = match(i, LowYrs, nomatch = 0)
-  if (MatchIhigh > 0){
-    pltName = as.symbol(paste( 'Yr', i, sep = '' ))
-    PlotItr = PlotItr + geom_line(aes_string(y=pltName), size = 0.5, colour = "blue")
-  } else if (MatchILow > 0){
-    pltName = as.symbol(paste( 'Yr', i, sep = '' ))
-    PlotItr = PlotItr + geom_line(aes_string(y=pltName), size = 0.5, colour = "red")
+  pltName = paste( 'Yr', i, sep = '' )
+  if (match(i, HighYrs, nomatch = 0) > 0){ #to do: add id
+    gs = lines(gs, df[,1], df[[pltName]], col = "blue")
+  } else if (match(i, LowYrs, nomatch = 0) > 0){
+    gs = lines(gs, df[,1], df[[pltName]],col = "red")
   } else{
-    pltName = as.symbol(paste( 'Yr', i, sep = '' ))
-    PlotItr = PlotItr + geom_line(aes_string(y=pltName), colour = "grey", alpha = 0.4)
+    gs = lines(gs, df[,1], df[[pltName]],col = "grey", opacity='0.2')
+    #PlotItr = PlotItr + geom_line(aes_string(y=pltName), colour = "grey", alpha = 0.4)
   }
 }
+
+svg(gs)
 #change to cubic feet per second
 #rm grey background, add titles
 
