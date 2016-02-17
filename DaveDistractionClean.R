@@ -141,39 +141,51 @@ for (i in WaterYearsVectSHORT){
 ylim <- ylim(gs)$side.2
 xlim <- xlim(gs)$side.1
 gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335)) %>% 
-  text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text') 
+  text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text') #%>%  <text x="78.72" y="78.72" text-anchor="begin" dy="1.0em" dx="0.5em" id="legend-text"> </text>
+  #rect() <rect x="355" y="85" height="20" width="30" fill="#abccab" stroke="#abccab" fill-opacity='0.4' onclick="loopYears()"/>
+
+gs$view.1.2$window$ylab = "Cubic Feet per Second"
+gs$view.1.2$window$xlab = "Month"
 svg(gs)
 
 # note: hand editing the ecmascript, and handediting the legend element
 ecma.text = "function loopYears(){
-	  	  	var years = [1895,1896,1897,1898,1899,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015];
-	  var numYears = years.length;
-	  function displayYear(year){
-	  document.getElementById('Yr'+year).setAttribute('class','shown');
-	  }
-	  function legendText(text){
-	  document.getElementById('legend-text').firstChild.data = text;
-	  }
-	  function hideYear(year){
-	  document.getElementById('Yr'+year).setAttribute('class','hidden');
-	  }
-	  legendText(' ');
-	  for (var i = 0; i < numYears; i++) {
-	  hideYear(years[i]);
-	  }
-	  var i =0;
-	  var interval = setInterval(function () {   
-	  if (i < numYears){
-	  displayYear(years[i]);
-	  if (i > 0){
-	  document.getElementById('Yr'+years[i-1]).setAttribute('class','ghost');
-	  }
-	  legendText('Year: ' + years[i]);
-	  i++
-	  } else {
-	  clearInterval(interval);
-	  }}, 100)
-	  }"
+	  	  	  	var years = [1895,1896,1897,1898,1899,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015];
+	  	  var numYears = years.length;
+	  	  function displayYear(year){
+	  	  document.getElementById('Yr'+year).setAttribute('class','shown');
+	  	  }
+	  	  function legendText(text){
+	  	  document.getElementById('legend-text').firstChild.data = text;
+	  	  }
+	  	  function hideYear(year){
+	  	  document.getElementById('Yr'+year).setAttribute('class','hidden');
+	  	  }
+		  function ghostYear(year){
+		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(190,190,190)'){
+		  document.getElementById('Yr'+year).setAttribute('class','ghost');
+		  }
+		  }
+	  	  legendText(' ');
+	  	  for (var i = 0; i < numYears; i++) {
+	  	  hideYear(years[i]);
+	  	  }
+	  	  var i =0;
+	  	  var interval = setInterval(function () {   
+	  	  if (i < numYears){
+	  	  displayYear(years[i]);
+	  	  if (i > 0){
+		  ghostYear(years[i-1])
+	  	  
+	  	  }
+	  	  legendText('Year: ' + years[i]);
+	  	  i++
+	  	  } else {
+		  ghostYear(years[i-1])
+	  	  clearInterval(interval);
+	  	  }}, 100)
+		  
+	  	  }"
 
 style.text = ".shown, .hidden {
       	-webkit-transition: opacity 0.2s ease-in-out;
