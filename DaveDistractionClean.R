@@ -135,7 +135,7 @@ for (i in WaterYearsVectSHORT){
   } else if (match(i, LowYrs, nomatch = 0) > 0){
     gs = lines(gs, df[,1], df[[pltName]],col = "red", id = pltName, class='hidden')
   } else{
-    gs = lines(gs, df[,1], df[[pltName]],col = "grey", opacity='0.2', id = pltName, class='hidden')
+    gs = lines(gs, df[,1], df[[pltName]],col = "grey", opacity='0.8', id = pltName, class='hidden')
   }
 }
 ylim <- ylim(gs)$side.2
@@ -165,12 +165,33 @@ ecma.text = "function loopYears(){
 	  var interval = setInterval(function () {   
 	  if (i < numYears){
 	  displayYear(years[i]);
+	  if (i > 0){
+	  document.getElementById('Yr'+years[i-1]).setAttribute('class','ghost');
+	  }
 	  legendText('Year: ' + years[i]);
 	  i++
 	  } else {
 	  clearInterval(interval);
 	  }}, 100)
 	  }"
+
+style.text = ".shown, .hidden {
+      	-webkit-transition: opacity 0.2s ease-in-out;
+      	-moz-transition: opacity 0.2s ease-in-out;
+      	-o-transition: opacity 0.2s ease-in-out;
+      	transition: opacity 0.2s ease-in-out;
+    }
+  .hidden {
+    	opacity:0;
+  }
+  
+  .ghost {
+  		opacity:0.1;
+      	-webkit-transition: opacity 1s ease-in-out;
+      	-moz-transition: opacity 1s ease-in-out;
+      	-o-transition: opacity 1s ease-in-out;
+      	transition: opacity 1s ease-in-out;
+  }"
 #change to cubic feet per second
 #rm grey background, add titles
 
