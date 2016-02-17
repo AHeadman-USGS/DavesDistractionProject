@@ -144,9 +144,7 @@
 	  }
 	  var i =0;
 	 var interval = setInterval(function () {   
-	 console.log(i);
 	 if (i < numYears){
-	 	console.log(numYears);
 	 	displayYear(years[i]);
 		i++
 	 } else {
