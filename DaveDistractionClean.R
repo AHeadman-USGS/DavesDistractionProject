@@ -86,8 +86,8 @@ WaterYearSum = head(WaterYearSum, -1)
 
 # Plots a summary of the annual data in a time series over the entire lifetime of the gage.
 
-bigplot = ggplot(data = WaterYearSum) + geom_line(aes(WtrYr, Mean, colour = "Mean")) + geom_line(aes(WtrYr, Max, colour = "Max")) + geom_line(aes(WtrYr, Min, colour = "Min")) + labs(x="Year",y="Q")+ scale_colour_manual(values= c("Blue", "Green", "Red"))+theme(legend.title=element_blank())
-bigplot
+#bigplot = ggplot(data = WaterYearSum) + geom_line(aes(WtrYr, Mean, colour = "Mean")) + geom_line(aes(WtrYr, Max, colour = "Max")) + geom_line(aes(WtrYr, Min, colour = "Min")) + labs(x="Year",y="Q")+ scale_colour_manual(values= c("Blue", "Green", "Red"))+theme(legend.title=element_blank())
+#bigplot
 
 ## Using the HighFive/LowFive functions to get a vector from the functions.
 HighYrs = HighFive(WaterYearSum)

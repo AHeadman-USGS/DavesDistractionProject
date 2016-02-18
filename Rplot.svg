@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 432 310">
   <style>
+	  text {
+	      font-size: 0.8em;
+	      cursor: default;
+	      font-family: Roboto, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	  }
 	  .shown, .hidden {
 	        	-webkit-transition: opacity 0.2s ease-in-out;
 	        	-moz-transition: opacity 0.2s ease-in-out;
@@ -37,6 +42,9 @@
           <path d="M 249.348,212.08 v -5"/>
           <path d="M 335.09,212.08 v -5"/>
         </g>
+		<g id="axis-label" stroke="none" fill="#000000" text-anchor="middle">
+			<text x="230.4" y="236.56" dy="0.7em">Month</text>
+		</g>
       </g>
       <g id="axis-side-2">
         <g id="tick-labels" stroke="none" fill="#000000" text-anchor="end">
@@ -49,6 +57,9 @@
           <path d="M 78.72,138.407 h 5"/>
           <path d="M 78.72,101.128 h 5"/>
         </g>
+		<g id="axis-label" stroke="none" fill="#000000" text-anchor="middle"> 
+			<text x="59.04" y="147.8" dy="-1.7em" transform="rotate(-90 59.04,147.8)">Cubic Feet per Second</text>
+		</g>
       </g>
     </g>
     <g stroke="rgb(190,190,190)" fill="none" clip-path="url(#mask-1-2)">
