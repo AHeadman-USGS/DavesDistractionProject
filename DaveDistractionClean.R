@@ -144,9 +144,6 @@ gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 
   text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text') #%>%  <text x="78.72" y="78.72" text-anchor="begin" dy="1.0em" dx="0.5em" id="legend-text"> </text>
   #rect() <rect x="355" y="85" height="20" width="30" fill="#abccab" stroke="#abccab" fill-opacity='0.4' onclick="loopYears()"/>
 
-gs$view.1.2$window$ylab = "Cubic Feet per Second"
-gs$view.1.2$window$xlab = "Month"
-svg(gs)
 
 # note: hand editing the ecmascript, and handediting the legend element
 ecma.text = "function loopYears(){
@@ -206,12 +203,16 @@ style.text = ".shown, .hidden {
   }"
 #change to cubic feet per second
 #rm grey background, add titles
-
-PlotItr + xlab("Month") + ylab("Cubic Feet per Second") + #geom_hline(yintercept=743.6127, linetype="dashed", color="black", size=1) +
-  scale_x_continuous(breaks = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335), 
-                     labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")) + 
-                     theme(panel.background = element_rect(fill='white', colour='black')) + ggtitle("Green River at Green River, UT (09315000) \n1895-2014")
-
-
-HighYrs
-LowYrs
+gs$view.1.2$window$ylab = "Cubic Feet per Second"
+gs$view.1.2$window$xlab = "Month"
+gs$ecmascript <- ecma.text
+gs$css <- style.text
+svg(gs)
+# PlotItr + xlab("Month") + ylab("Cubic Feet per Second") + #geom_hline(yintercept=743.6127, linetype="dashed", color="black", size=1) +
+#   scale_x_continuous(breaks = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335), 
+#                      labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")) + 
+#                      theme(panel.background = element_rect(fill='white', colour='black')) + ggtitle("Green River at Green River, UT (09315000) \n1895-2014")
+# 
+# 
+# HighYrs
+# LowYrs
