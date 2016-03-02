@@ -135,19 +135,19 @@ for (i in WaterYearsVectSHORT){
   } else if (match(i, LowYrs, nomatch = 0) > 0){
     gs = lines(gs, df[,1], df[[pltName]],col = "red", id = pltName, class='hidden')
   } else{
-    gs = lines(gs, df[,1], df[[pltName]],col = "grey", opacity='0.8', id = pltName, class='hidden')
+    gs = lines(gs, df[,1], df[[pltName]],col = "grey20", opacity='0.8', id = pltName, class='hidden')
   }
 }
 ylim <- ylim(gs)$side.2
 xlim <- xlim(gs)$side.1
 gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335)) %>% 
-  text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text') #%>%  <text x="78.72" y="78.72" text-anchor="begin" dy="1.0em" dx="0.5em" id="legend-text"> </text>
-  #rect() <rect x="355" y="85" height="20" width="30" fill="#abccab" stroke="#abccab" fill-opacity='0.4' onclick="loopYears()"/>
+  text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text')
 
 
 # note: hand editing the ecmascript, and handediting the legend element
-ecma.text = "function loopYears(){
-	  	  	  	var years = [1895,1896,1897,1898,1899,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015];
+ecma.text = sprintf("function loopYears(){
+      clearInterval(window.myInterval);
+	  	  	  	var years = [%s];
 	  	  var numYears = years.length;
 	  	  function displayYear(year){
 	  	  document.getElementById('Yr'+year).setAttribute('class','shown');
@@ -159,7 +159,7 @@ ecma.text = "function loopYears(){
 	  	  document.getElementById('Yr'+year).setAttribute('class','hidden');
 	  	  }
 		  function ghostYear(year){
-		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(190,190,190)'){
+		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
 		  document.getElementById('Yr'+year).setAttribute('class','ghost');
 		  }
 		  }
@@ -168,7 +168,7 @@ ecma.text = "function loopYears(){
 	  	  hideYear(years[i]);
 	  	  }
 	  	  var i =0;
-	  	  var interval = setInterval(function () {   
+	  	  window.myInterval = setInterval(function () {   
 	  	  if (i < numYears){
 	  	  displayYear(years[i]);
 	  	  if (i > 0){
@@ -179,11 +179,16 @@ ecma.text = "function loopYears(){
 	  	  i++
 	  	  } else {
 		  ghostYear(years[i-1])
-	  	  clearInterval(interval);
+	  	  clearInterval(window.myInterval);
 	  	  }}, 100)
 		  
-	  	  }"
+	  	  }",paste(WaterYearsVectSHORT,collapse=','))
 
+#text {
+# font-size: 0.8em;
+# cursor: default;
+# font-family: Roboto, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+# }
 style.text = ".shown, .hidden {
       	-webkit-transition: opacity 0.2s ease-in-out;
       	-moz-transition: opacity 0.2s ease-in-out;
@@ -200,19 +205,30 @@ style.text = ".shown, .hidden {
       	-moz-transition: opacity 1s ease-in-out;
       	-o-transition: opacity 1s ease-in-out;
       	transition: opacity 1s ease-in-out;
-  }"
+  }
+ text {
+ \tfont-size: 0.8em;
+ \tcursor: default;
+ \tfont-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ }"
 #change to cubic feet per second
 #rm grey background, add titles
 gs$view.1.2$window$ylab = "Cubic Feet per Second"
 gs$view.1.2$window$xlab = "Month"
 gs$ecmascript <- ecma.text
 gs$css <- style.text
-svg(gs)
-# PlotItr + xlab("Month") + ylab("Cubic Feet per Second") + #geom_hline(yintercept=743.6127, linetype="dashed", color="black", size=1) +
-#   scale_x_continuous(breaks = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335), 
-#                      labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")) + 
-#                      theme(panel.background = element_rect(fill='white', colour='black')) + ggtitle("Green River at Green River, UT (09315000) \n1895-2014")
-# 
-# 
-# HighYrs
-# LowYrs
+svg(gs, file = "Rplot.svg")
+
+# now read in the svg and manipulate it 
+library(XML)
+svg <- xmlParse("Rplot.svg", useInternalNode=TRUE)
+legend.g <- xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']","legend-text"))[[1]]
+removeAttributes(legend.g, .attrs = 'id')
+addAttributes(xpathApply(legend.g,'child::node()')[[1]], .attrs = c('id'="legend-text",dy="1.0em", dx="0.5em", 'text-anchor'='begin' ))#?
+newXMLNode(name = 'rect', parent = xpathApply(legend.g,'parent::node()')[[1]],
+           attrs=c(x="360", y="70", height="20", width="30", fill="#abccab", stroke="#abccab", 'fill-opacity'="0.4", onclick="loopYears()"))
+newXMLNode(name = 'path', parent = xpathApply(legend.g,'parent::node()')[[1]],
+           attrs=c(d="M 370,74 L383,80 L370,86z ", fill="#abccab", stroke="none", onclick="loopYears()"))
+addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[2]], .attrs = c(dy="-3.0em"))
+saveXML(svg, file = "Rplot.svg")
+
