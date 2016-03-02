@@ -150,8 +150,12 @@ ecma.text = sprintf("function loopYears(){
 	  	  	  	var years = [%s];
 	  	  var numYears = years.length;
 	  	  function displayYear(year){
-	  	  document.getElementById('Yr'+year).setAttribute('class','shown');
-	  	  }
+		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
+                    document.getElementById('Yr'+year).setAttribute('class','shown');
+                    } else {
+                    document.getElementById('Yr'+year).setAttribute('class','em-shown');
+                    }
+                    }
 	  	  function legendText(text){
 	  	  document.getElementById('legend-text').firstChild.data = text;
 	  	  }
@@ -160,9 +164,11 @@ ecma.text = sprintf("function loopYears(){
 	  	  }
 		  function ghostYear(year){
 		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
-		  document.getElementById('Yr'+year).setAttribute('class','ghost');
-		  }
-		  }
+                    document.getElementById('Yr'+year).setAttribute('class','ghost');
+                    } else {
+                    document.getElementById('Yr'+year).setAttribute('class','em-ghost');
+                    }
+                    }
 	  	  legendText(' ');
 	  	  for (var i = 0; i < numYears; i++) {
 	  	  hideYear(years[i]);
@@ -190,26 +196,44 @@ ecma.text = sprintf("function loopYears(){
 # font-family: Roboto, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 # }
 style.text = ".shown, .hidden {
-      	-webkit-transition: opacity 0.2s ease-in-out;
-      	-moz-transition: opacity 0.2s ease-in-out;
-      	-o-transition: opacity 0.2s ease-in-out;
-      	transition: opacity 0.2s ease-in-out;
+    	-webkit-transition: opacity 0.2s ease-in-out;
+    	-moz-transition: opacity 0.2s ease-in-out;
+    	-o-transition: opacity 0.2s ease-in-out;
+    	transition: opacity 0.2s ease-in-out;
+		stroke-width: 2;
     }
   .hidden {
     	opacity:0;
   }
   
   .ghost {
-  		opacity:0.1;
+  		opacity:0.05;
       	-webkit-transition: opacity 1s ease-in-out;
       	-moz-transition: opacity 1s ease-in-out;
       	-o-transition: opacity 1s ease-in-out;
       	transition: opacity 1s ease-in-out;
+    	-webkit-transition: stroke-width 0.5s ease-in-out;
+    	-moz-transition: stroke-width 0.5s ease-in-out;
+    	-o-transition: stroke-width 0.5s ease-in-out;
+    	transition: stroke-width 0.5s ease-in-out;
+		stroke-width: 1;
+  }
+  .em-ghost {
+  		opacity:0.5;
+      	-webkit-transition: opacity 4.0s ease-in-out;
+      	-moz-transition: opacity 4.0s ease-in-out;
+      	-o-transition: opacity 4.0s ease-in-out;
+      	transition: opacity 4.0s ease-in-out;
+    	-webkit-transition: stroke-width 0.5s ease-in-out;
+    	-moz-transition: stroke-width 0.5s ease-in-out;
+    	-o-transition: stroke-width 0.5s ease-in-out;
+    	transition: stroke-width 0.5s ease-in-out;
+		stroke-width: 1;
   }
  text {
- \tfont-size: 0.8em;
- \tcursor: default;
- \tfont-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-size: 0.8em;
+ 	cursor: default;
+ 	font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
  }"
 #change to cubic feet per second
 #rm grey background, add titles

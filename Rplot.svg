@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 432 310">
-  <style>.shown, .hidden {
+  <style>.em-shown, .hidden, .shown {
     	-webkit-transition: opacity 0.2s ease-in-out;
     	-moz-transition: opacity 0.2s ease-in-out;
     	-o-transition: opacity 0.2s ease-in-out;
     	transition: opacity 0.2s ease-in-out;
-		stroke-width: 2;
     }
   .hidden {
     	opacity:0;
   }
-  
+  .em-shown {
+  		stroke-width: 2;
+  }
   .ghost {
   		opacity:0.05;
       	-webkit-transition: opacity 1s ease-in-out;
@@ -21,7 +22,6 @@
     	-moz-transition: stroke-width 0.5s ease-in-out;
     	-o-transition: stroke-width 0.5s ease-in-out;
     	transition: stroke-width 0.5s ease-in-out;
-		stroke-width: 1;
   }
   .em-ghost {
   		opacity:0.5;
@@ -469,8 +469,12 @@ function hovertext(text, x, y){
 	  	  	  	var years = [1895,1896,1897,1898,1899,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015];
 	  	  var numYears = years.length;
 	  	  function displayYear(year){
-	  	  document.getElementById('Yr'+year).setAttribute('class','shown');
-	  	  }
+		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
+		  	document.getElementById('Yr'+year).setAttribute('class','shown');
+		  } else {
+		  	document.getElementById('Yr'+year).setAttribute('class','em-shown');
+		  }
+		  }
 	  	  function legendText(text){
 	  	  document.getElementById('legend-text').firstChild.data = text;
 	  	  }
