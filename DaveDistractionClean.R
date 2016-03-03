@@ -140,7 +140,8 @@ for (i in WaterYearsVectSHORT){
 }
 ylim <- ylim(gs)$side.2
 xlim <- xlim(gs)$side.1
-gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335)) %>% 
+gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335), 
+           labels=c('Jan','Feb','Mar','Apr','May','June','Jul','Aug','Sep','Oct','Nov','Dec')) %>% 
   text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text')
 
 
@@ -190,44 +191,31 @@ ecma.text = sprintf("function loopYears(){
 		  
 	  	  }",paste(WaterYearsVectSHORT,collapse=','))
 
-#text {
-# font-size: 0.8em;
-# cursor: default;
-# font-family: Roboto, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-# }
 style.text = ".shown, .hidden {
     	-webkit-transition: opacity 0.2s ease-in-out;
     	-moz-transition: opacity 0.2s ease-in-out;
     	-o-transition: opacity 0.2s ease-in-out;
     	transition: opacity 0.2s ease-in-out;
-		stroke-width: 2;
     }
   .hidden {
     	opacity:0;
   }
-  
+  .em-shown {
+		stroke-width: 2;
+  }
   .ghost {
   		opacity:0.05;
-      	-webkit-transition: opacity 1s ease-in-out;
-      	-moz-transition: opacity 1s ease-in-out;
-      	-o-transition: opacity 1s ease-in-out;
-      	transition: opacity 1s ease-in-out;
-    	-webkit-transition: stroke-width 0.5s ease-in-out;
-    	-moz-transition: stroke-width 0.5s ease-in-out;
-    	-o-transition: stroke-width 0.5s ease-in-out;
-    	transition: stroke-width 0.5s ease-in-out;
-		stroke-width: 1;
+    	-webkit-transition:all 0.5s ease-in-out;
+    	-moz-transition: all 0.5s ease-in-out;
+    	-o-transition: all 0.5s ease-in-out;
+    	transition: all 0.5s ease-in-out;
   }
   .em-ghost {
   		opacity:0.5;
-      	-webkit-transition: opacity 4.0s ease-in-out;
-      	-moz-transition: opacity 4.0s ease-in-out;
-      	-o-transition: opacity 4.0s ease-in-out;
-      	transition: opacity 4.0s ease-in-out;
-    	-webkit-transition: stroke-width 0.5s ease-in-out;
-    	-moz-transition: stroke-width 0.5s ease-in-out;
-    	-o-transition: stroke-width 0.5s ease-in-out;
-    	transition: stroke-width 0.5s ease-in-out;
+    	-webkit-transition: all 1.5s ease-in-out;
+    	-moz-transition: all 1.5s ease-in-out;
+    	-o-transition: all 1.5s ease-in-out;
+    	transition: all 1.5s ease-in-out;
 		stroke-width: 1;
   }
  text {
@@ -253,6 +241,6 @@ newXMLNode(name = 'rect', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(x="360", y="70", height="20", width="30", fill="#abccab", stroke="#abccab", 'fill-opacity'="0.4", onclick="loopYears()"))
 newXMLNode(name = 'path', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(d="M 370,74 L383,80 L370,86z ", fill="#abccab", stroke="none", onclick="loopYears()"))
-addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[2]], .attrs = c(dy="-3.0em"))
+addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[1]], .attrs = c(dy="-3.0em"))
 saveXML(svg, file = "Rplot.svg")
 
