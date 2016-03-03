@@ -269,6 +269,7 @@ view.bounds <- dinosvg:::view_bounds(g.view)
 all.years <- seq(min(WaterYearsVectSHORT), max(WaterYearsVectSHORT))
 box.w <- view.bounds[['width']]/(length(all.years)+1)
 
+
 for (year in all.years){
   # if id, get color, otherwise, no color
   i <- which(year == all.years)
@@ -276,8 +277,13 @@ for (year in all.years){
   g.node <- xpathApply(svg, sprintf("//*[local-name()='path'][@id='%s']/parent::node()",id))[[1]]
   if (!is.null(g.node)){
     newXMLNode(name = 'rect', parent = xpathApply(g.node,'parent::node()')[[1]],
-               attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=view.bounds[['y']]+view.bounds[['height']]+50, height="20", width=box.w, fill=xmlAttrs(g.node)[['stroke']], stroke="none", 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
+               attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=view.bounds[['y']]+view.bounds[['height']]+30, height="15", width=box.w, fill=xmlAttrs(g.node)[['stroke']], stroke="none", 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
     
+  }
+  if (year == tail(all.years,1)){
+    newXMLNode(name = 'path', parent = xpathApply(g.node,'parent::node()')[[1]],
+               attrs=c(d=sprintf('M %s,%s h'.... fill=xmlAttrs(g.node)[['stroke']], stroke="none", 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
+    #lines!!
   }
 }
 saveXML(svg, file = "Rplot.svg")
