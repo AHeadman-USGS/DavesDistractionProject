@@ -191,38 +191,50 @@ ecma.text = sprintf("function loopYears(){
 		  
 	  	  }",paste(WaterYearsVectSHORT,collapse=','))
 
-style.text = ".shown, .hidden {
-    	-webkit-transition: opacity 0.2s ease-in-out;
-    	-moz-transition: opacity 0.2s ease-in-out;
-    	-o-transition: opacity 0.2s ease-in-out;
-    	transition: opacity 0.2s ease-in-out;
-    }
-  .hidden {
-    	opacity:0;
-  }
-  .em-shown {
-		stroke-width: 2;
-  }
-  .ghost {
+
+style.text = ".em-shown, .hidden, .shown {
+-webkit-transition: opacity 0.4s ease-in-out;
+-moz-transition: opacity 0.4s ease-in-out;
+-o-transition: opacity 0.4s ease-in-out;
+transition: opacity 0.4s ease-in-out;
+}
+.hidden {
+    opacity:0;
+}
+.em-shown {
+  		stroke-width: 2;
+}
+.shown {
+    stroke-width: 1.5;
+}
+.ghost {
   		opacity:0.05;
-    	-webkit-transition:all 0.5s ease-in-out;
-    	-moz-transition: all 0.5s ease-in-out;
-    	-o-transition: all 0.5s ease-in-out;
-    	transition: all 0.5s ease-in-out;
-  }
-  .em-ghost {
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+        -webkit-transition: stroke-width 0.5s ease-in-out;
+        -moz-transition: stroke-width 0.5s ease-in-out;
+        -o-transition: stroke-width 0.5s ease-in-out;
+        transition: stroke-width 0.5s ease-in-out;
+}
+.em-ghost {
   		opacity:0.5;
-    	-webkit-transition: all 1.5s ease-in-out;
-    	-moz-transition: all 1.5s ease-in-out;
-    	-o-transition: all 1.5s ease-in-out;
-    	transition: all 1.5s ease-in-out;
-		stroke-width: 1;
-  }
- text {
- 	font-size: 0.8em;
- 	cursor: default;
- 	font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
- }"
+        -webkit-transition: opacity 4.0s ease-in-out;
+        -moz-transition: opacity 4.0s ease-in-out;
+        -o-transition: opacity 4.0s ease-in-out;
+        transition: opacity 4.0s ease-in-out;
+        -webkit-transition: stroke-width 0.5s ease-in-out;
+        -moz-transition: stroke-width 0.5s ease-in-out;
+        -o-transition: stroke-width 0.5s ease-in-out;
+        transition: stroke-width 0.5s ease-in-out;
+        stroke-width: 1;
+}
+text {
+    font-size: 0.8em;
+    cursor: default;
+    font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}"
 #change to cubic feet per second
 #rm grey background, add titles
 gs$view.1.2$window$ylab = "Cubic Feet per Second"
