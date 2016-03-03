@@ -1,16 +1,19 @@
 <?xml version="1.0"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 432 310">
   <style>.em-shown, .hidden, .shown {
-    	-webkit-transition: opacity 0.2s ease-in-out;
-    	-moz-transition: opacity 0.2s ease-in-out;
-    	-o-transition: opacity 0.2s ease-in-out;
-    	transition: opacity 0.2s ease-in-out;
+    	-webkit-transition: opacity 0.4s ease-in-out;
+    	-moz-transition: opacity 0.4s ease-in-out;
+    	-o-transition: opacity 0.4s ease-in-out;
+    	transition: opacity 0.4s ease-in-out;
     }
   .hidden {
     	opacity:0;
   }
   .em-shown {
   		stroke-width: 2;
+  }
+  .shown {
+      stroke-width: 1.5;
   }
   .ghost {
   		opacity:0.05;
