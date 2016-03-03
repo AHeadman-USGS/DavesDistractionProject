@@ -153,43 +153,48 @@ ecma.text = sprintf("function loopYears(){
 	  	  function displayYear(year){
 		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
                     document.getElementById('Yr'+year).setAttribute('class','shown');
+                    document.getElementById('rect'+year).setAttribute('class','shown');
                     } else {
                     document.getElementById('Yr'+year).setAttribute('class','em-shown');
+                    document.getElementById('rect'+year).setAttribute('class','em-shown');
                     }
                     }
-	  	  function legendText(text){
-	  	  document.getElementById('legend-text').firstChild.data = text;
-	  	  }
-	  	  function hideYear(year){
-	  	  document.getElementById('Yr'+year).setAttribute('class','hidden');
-	  	  }
-		  function ghostYear(year){
-		  if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
+                    function legendText(text){
+                    document.getElementById('legend-text').firstChild.data = text;
+                    }
+                    function hideYear(year){
+                    document.getElementById('Yr'+year).setAttribute('class','hidden');
+                    document.getElementById('rect'+year).setAttribute('class','hidden');
+                    }
+                    function ghostYear(year){
+                    if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
                     document.getElementById('Yr'+year).setAttribute('class','ghost');
+                    document.getElementById('rect'+year).setAttribute('class','ghost');
                     } else {
                     document.getElementById('Yr'+year).setAttribute('class','em-ghost');
+                    document.getElementById('rect'+year).setAttribute('class','em-ghost');
                     }
                     }
-	  	  legendText(' ');
-	  	  for (var i = 0; i < numYears; i++) {
-	  	  hideYear(years[i]);
-	  	  }
-	  	  var i =0;
-	  	  window.myInterval = setInterval(function () {   
-	  	  if (i < numYears){
-	  	  displayYear(years[i]);
-	  	  if (i > 0){
-		  ghostYear(years[i-1])
-	  	  
-	  	  }
-	  	  legendText('Year: ' + years[i]);
-	  	  i++
-	  	  } else {
-		  ghostYear(years[i-1])
-	  	  clearInterval(window.myInterval);
-	  	  }}, 100)
-		  
-	  	  }",paste(WaterYearsVectSHORT,collapse=','))
+                    legendText(' ');
+                    for (var i = 0; i < numYears; i++) {
+                    hideYear(years[i]);
+                    }
+                    var i =0;
+                    window.myInterval = setInterval(function () {   
+                    if (i < numYears){
+                    displayYear(years[i]);
+                    if (i > 0){
+                    ghostYear(years[i-1])
+                    
+                    }
+                    legendText('Year: ' + years[i]);
+                    i++
+                    } else {
+                    ghostYear(years[i-1])
+                    clearInterval(window.myInterval);
+                    }}, 100)
+                    
+                    }",paste(WaterYearsVectSHORT,collapse=','))
 
 
 style.text = ".em-shown, .hidden, .shown {
@@ -241,6 +246,7 @@ gs$view.1.2$window$ylab = "Cubic Feet per Second"
 gs$view.1.2$window$xlab = "Month"
 gs$ecmascript <- ecma.text
 gs$css <- style.text
+save(gs, file='testDave.RData')
 svg(gs, file = "Rplot.svg")
 
 # now read in the svg and manipulate it 
@@ -254,5 +260,24 @@ newXMLNode(name = 'rect', parent = xpathApply(legend.g,'parent::node()')[[1]],
 newXMLNode(name = 'path', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(d="M 370,74 L383,80 L370,86z ", fill="#abccab", stroke="none", onclick="loopYears()"))
 addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[1]], .attrs = c(dy="-3.0em"))
-saveXML(svg, file = "Rplot.svg")
 
+
+# now get the bounds and add some new things...
+g.view <- dinosvg:::g_view(svg,c(1,2))
+view.bounds <- dinosvg:::view_bounds(g.view)
+
+all.years <- seq(min(WaterYearsVectSHORT), max(WaterYearsVectSHORT))
+box.w <- view.bounds[['width']]/(length(all.years)+1)
+
+for (year in all.years){
+  # if id, get color, otherwise, no color
+  i <- which(year == all.years)
+  id <- paste0("Yr",year)
+  g.node <- xpathApply(svg, sprintf("//*[local-name()='path'][@id='%s']/parent::node()",id))[[1]]
+  if (!is.null(g.node)){
+    newXMLNode(name = 'rect', parent = xpathApply(g.node,'parent::node()')[[1]],
+               attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=view.bounds[['y']]+view.bounds[['height']]+50, height="20", width=box.w, fill=xmlAttrs(g.node)[['stroke']], stroke="none", 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
+    
+  }
+}
+saveXML(svg, file = "Rplot.svg")
