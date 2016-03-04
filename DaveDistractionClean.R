@@ -169,10 +169,10 @@ ecma.text = sprintf("function loopYears(){
                     function ghostYear(year){
                     if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
                     document.getElementById('Yr'+year).setAttribute('class','ghost');
-                    document.getElementById('rect'+year).setAttribute('class','ghost');
+                    document.getElementById('rect'+year).setAttribute('class','ghost-box');
                     } else {
                     document.getElementById('Yr'+year).setAttribute('class','em-ghost');
-                    document.getElementById('rect'+year).setAttribute('class','em-ghost');
+                    document.getElementById('rect'+year).setAttribute('class','em-ghost-box');
                     }
                     }
                     legendText(' ');
@@ -204,41 +204,49 @@ style.text = ".em-shown, .hidden, .shown {
 transition: opacity 0.4s ease-in-out;
 }
 .hidden {
-    opacity:0;
+opacity:0;
 }
 .em-shown {
-  		stroke-width: 2;
+stroke-width: 2;
 }
 .shown {
-    stroke-width: 1.5;
+stroke-width: 1.5;
 }
-.ghost {
-  		opacity:0.05;
-        -webkit-transition: opacity 1s ease-in-out;
-        -moz-transition: opacity 1s ease-in-out;
-        -o-transition: opacity 1s ease-in-out;
-        transition: opacity 1s ease-in-out;
-        -webkit-transition: stroke-width 0.5s ease-in-out;
-        -moz-transition: stroke-width 0.5s ease-in-out;
-        -o-transition: stroke-width 0.5s ease-in-out;
-        transition: stroke-width 0.5s ease-in-out;
+.ghost, .ghost-box {
+opacity:0.05;
+-webkit-transition: opacity 1s ease-in-out;
+-moz-transition: opacity 1s ease-in-out;
+-o-transition: opacity 1s ease-in-out;
+transition: opacity 1s ease-in-out;
+-webkit-transition: stroke-width 0.5s ease-in-out;
+-moz-transition: stroke-width 0.5s ease-in-out;
+-o-transition: stroke-width 0.5s ease-in-out;
+transition: stroke-width 0.5s ease-in-out;
+}
+.em-ghost, .em-ghost-box {
+opacity:0.5;
+-webkit-transition: opacity 4.0s ease-in-out;
+-moz-transition: opacity 4.0s ease-in-out;
+-o-transition: opacity 4.0s ease-in-out;
+transition: opacity 4.0s ease-in-out;
+-webkit-transition: stroke-width 0.5s ease-in-out;
+-moz-transition: stroke-width 0.5s ease-in-out;
+-o-transition: stroke-width 0.5s ease-in-out;
+transition: stroke-width 0.5s ease-in-out;
 }
 .em-ghost {
-  		opacity:0.5;
-        -webkit-transition: opacity 4.0s ease-in-out;
-        -moz-transition: opacity 4.0s ease-in-out;
-        -o-transition: opacity 4.0s ease-in-out;
-        transition: opacity 4.0s ease-in-out;
-        -webkit-transition: stroke-width 0.5s ease-in-out;
-        -moz-transition: stroke-width 0.5s ease-in-out;
-        -o-transition: stroke-width 0.5s ease-in-out;
-        transition: stroke-width 0.5s ease-in-out;
-        stroke-width: 1;
+stroke-width: 1;
+}
+.em-ghost-box{
+stroke-width: 0;
+}
+.ghost-box {
+stroke: none;
 }
 text {
-    font-size: 0.8em;
-    cursor: default;
-    font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 0.8em;
+cursor: default;
+font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }"
 #change to cubic feet per second
 #rm grey background, add titles
@@ -267,8 +275,12 @@ g.view <- dinosvg:::g_view(svg,c(1,2))
 view.bounds <- dinosvg:::view_bounds(g.view)
 
 all.years <- seq(min(WaterYearsVectSHORT), max(WaterYearsVectSHORT))
-box.w <- view.bounds[['width']]/(length(all.years)+1)
+box.w <- view.bounds[['width']]/(length(all.years))
 
+top.box <- view.bounds[['y']]+view.bounds[['height']]+30
+box.h <- 15
+
+yr.text <- pretty(all.years)
 
 for (year in all.years){
   # if id, get color, otherwise, no color
@@ -277,13 +289,18 @@ for (year in all.years){
   g.node <- xpathApply(svg, sprintf("//*[local-name()='path'][@id='%s']/parent::node()",id))[[1]]
   if (!is.null(g.node)){
     newXMLNode(name = 'rect', parent = xpathApply(g.node,'parent::node()')[[1]],
-               attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=view.bounds[['y']]+view.bounds[['height']]+30, height="15", width=box.w, fill=xmlAttrs(g.node)[['stroke']], stroke="none", 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
+               attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=top.box, height=box.h, width=box.w, fill=xmlAttrs(g.node)[['stroke']], 
+                       stroke=xmlAttrs(g.node)[['stroke']], 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
     
   }
   if (year == tail(all.years,1)){
     newXMLNode(name = 'path', parent = xpathApply(g.node,'parent::node()')[[1]],
-               attrs=c(d=sprintf('M %s,%s h'.... fill=xmlAttrs(g.node)[['stroke']], stroke="none", 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
+               attrs=c(d=sprintf('M %s,%s h %s',view.bounds[['x']], bot.box+box.h, view.bounds[['width']]),stroke="black", id='box-axis')) #
     #lines!!
+  }
+  if (year %in% yr.text){
+    dinosvg:::svg_node("text", xpathApply(g.node,'parent::node()')[[1]], c(x=view.bounds[['x']]+(i-1)*box.w/2, y=top.box+box.h, 'text-anchor'='middle', 
+                                                                           dy="1.0em"), newXMLTextNode(year), id=paste0("label-",year))  
   }
 }
 saveXML(svg, file = "Rplot.svg")

@@ -15,7 +15,7 @@ transition: opacity 0.4s ease-in-out;
 .shown {
     stroke-width: 1.5;
 }
-.ghost {
+.ghost, .ghost-box {
   		opacity:0.05;
         -webkit-transition: opacity 1s ease-in-out;
         -moz-transition: opacity 1s ease-in-out;
@@ -26,7 +26,7 @@ transition: opacity 0.4s ease-in-out;
         -o-transition: stroke-width 0.5s ease-in-out;
         transition: stroke-width 0.5s ease-in-out;
 }
-.em-ghost {
+.em-ghost, .em-ghost-box {
   		opacity:0.5;
         -webkit-transition: opacity 4.0s ease-in-out;
         -moz-transition: opacity 4.0s ease-in-out;
@@ -36,7 +36,15 @@ transition: opacity 0.4s ease-in-out;
         -moz-transition: stroke-width 0.5s ease-in-out;
         -o-transition: stroke-width 0.5s ease-in-out;
         transition: stroke-width 0.5s ease-in-out;
+}
+.em-ghost {
         stroke-width: 1;
+}
+.em-ghost-box{
+        stroke-width: 0;
+}
+.ghost-box {
+		stroke: none;
 }
 text {
     font-size: 0.8em;
@@ -451,122 +459,123 @@ text {
     </g>
     <rect x="360" y="70" height="20" width="30" fill="#abccab" stroke="#abccab" fill-opacity="0.4" onclick="loopYears()"/>
     <path d="M 370,74 L383,80 L370,86z " fill="#abccab" stroke="none" onclick="loopYears()"/>
-    <rect x="59.04" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1895" onclick="loopYears()" class="hidden"/>
-    <rect x="61.8491803278689" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1896" onclick="loopYears()" class="hidden"/>
-    <rect x="64.6583606557377" y="266.56" height="15" width="2.80918032786885" fill="rgb(0,0,255)" stroke="none" fill-opacity="0.8" id="rect1897" onclick="loopYears()" class="hidden"/>
-    <rect x="67.4675409836066" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1898" onclick="loopYears()" class="hidden"/>
-    <rect x="70.2767213114754" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1899" onclick="loopYears()" class="hidden"/>
-    <rect x="87.1318032786885" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1905" onclick="loopYears()" class="hidden"/>
-    <rect x="89.9409836065574" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1906" onclick="loopYears()" class="hidden"/>
-    <rect x="92.7501639344262" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1907" onclick="loopYears()" class="hidden"/>
-    <rect x="95.5593442622951" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1908" onclick="loopYears()" class="hidden"/>
-    <rect x="98.3685245901639" y="266.56" height="15" width="2.80918032786885" fill="rgb(0,0,255)" stroke="none" fill-opacity="0.8" id="rect1909" onclick="loopYears()" class="hidden"/>
-    <rect x="101.177704918033" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1910" onclick="loopYears()" class="hidden"/>
-    <rect x="103.986885245902" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1911" onclick="loopYears()" class="hidden"/>
-    <rect x="106.79606557377" y="266.56" height="15" width="2.80918032786885" fill="rgb(0,0,255)" stroke="none" fill-opacity="0.8" id="rect1912" onclick="loopYears()" class="hidden"/>
-    <rect x="109.605245901639" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1913" onclick="loopYears()" class="hidden"/>
-    <rect x="112.414426229508" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1914" onclick="loopYears()" class="hidden"/>
-    <rect x="115.223606557377" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1915" onclick="loopYears()" class="hidden"/>
-    <rect x="118.032786885246" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1916" onclick="loopYears()" class="hidden"/>
-    <rect x="120.841967213115" y="266.56" height="15" width="2.80918032786885" fill="rgb(0,0,255)" stroke="none" fill-opacity="0.8" id="rect1917" onclick="loopYears()" class="hidden"/>
-    <rect x="123.651147540984" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1918" onclick="loopYears()" class="hidden"/>
-    <rect x="126.460327868852" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1919" onclick="loopYears()" class="hidden"/>
-    <rect x="129.269508196721" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1920" onclick="loopYears()" class="hidden"/>
-    <rect x="132.07868852459" y="266.56" height="15" width="2.80918032786885" fill="rgb(0,0,255)" stroke="none" fill-opacity="0.8" id="rect1921" onclick="loopYears()" class="hidden"/>
-    <rect x="134.887868852459" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1922" onclick="loopYears()" class="hidden"/>
-    <rect x="137.697049180328" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1923" onclick="loopYears()" class="hidden"/>
-    <rect x="140.506229508197" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1924" onclick="loopYears()" class="hidden"/>
-    <rect x="143.315409836066" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1925" onclick="loopYears()" class="hidden"/>
-    <rect x="146.124590163934" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1926" onclick="loopYears()" class="hidden"/>
-    <rect x="148.933770491803" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1927" onclick="loopYears()" class="hidden"/>
-    <rect x="151.742950819672" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1928" onclick="loopYears()" class="hidden"/>
-    <rect x="154.552131147541" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1929" onclick="loopYears()" class="hidden"/>
-    <rect x="157.36131147541" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1930" onclick="loopYears()" class="hidden"/>
-    <rect x="160.170491803279" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1931" onclick="loopYears()" class="hidden"/>
-    <rect x="162.979672131148" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1932" onclick="loopYears()" class="hidden"/>
-    <rect x="165.788852459016" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1933" onclick="loopYears()" class="hidden"/>
-    <rect x="168.598032786885" y="266.56" height="15" width="2.80918032786885" fill="rgb(255,0,0)" stroke="none" fill-opacity="0.8" id="rect1934" onclick="loopYears()" class="hidden"/>
-    <rect x="171.407213114754" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1935" onclick="loopYears()" class="hidden"/>
-    <rect x="174.216393442623" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1936" onclick="loopYears()" class="hidden"/>
-    <rect x="177.025573770492" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1937" onclick="loopYears()" class="hidden"/>
-    <rect x="179.834754098361" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1938" onclick="loopYears()" class="hidden"/>
-    <rect x="182.64393442623" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1939" onclick="loopYears()" class="hidden"/>
-    <rect x="185.453114754098" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1940" onclick="loopYears()" class="hidden"/>
-    <rect x="188.262295081967" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1941" onclick="loopYears()" class="hidden"/>
-    <rect x="191.071475409836" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1942" onclick="loopYears()" class="hidden"/>
-    <rect x="193.880655737705" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1943" onclick="loopYears()" class="hidden"/>
-    <rect x="196.689836065574" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1944" onclick="loopYears()" class="hidden"/>
-    <rect x="199.499016393443" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1945" onclick="loopYears()" class="hidden"/>
-    <rect x="202.308196721311" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1946" onclick="loopYears()" class="hidden"/>
-    <rect x="205.11737704918" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1947" onclick="loopYears()" class="hidden"/>
-    <rect x="207.926557377049" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1948" onclick="loopYears()" class="hidden"/>
-    <rect x="210.735737704918" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1949" onclick="loopYears()" class="hidden"/>
-    <rect x="213.544918032787" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1950" onclick="loopYears()" class="hidden"/>
-    <rect x="216.354098360656" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1951" onclick="loopYears()" class="hidden"/>
-    <rect x="219.163278688525" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1952" onclick="loopYears()" class="hidden"/>
-    <rect x="221.972459016393" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1953" onclick="loopYears()" class="hidden"/>
-    <rect x="224.781639344262" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1954" onclick="loopYears()" class="hidden"/>
-    <rect x="227.590819672131" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1955" onclick="loopYears()" class="hidden"/>
-    <rect x="230.4" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1956" onclick="loopYears()" class="hidden"/>
-    <rect x="233.209180327869" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1957" onclick="loopYears()" class="hidden"/>
-    <rect x="236.018360655738" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1958" onclick="loopYears()" class="hidden"/>
-    <rect x="238.827540983607" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1959" onclick="loopYears()" class="hidden"/>
-    <rect x="241.636721311475" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1960" onclick="loopYears()" class="hidden"/>
-    <rect x="244.445901639344" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1961" onclick="loopYears()" class="hidden"/>
-    <rect x="247.255081967213" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1962" onclick="loopYears()" class="hidden"/>
-    <rect x="250.064262295082" y="266.56" height="15" width="2.80918032786885" fill="rgb(255,0,0)" stroke="none" fill-opacity="0.8" id="rect1963" onclick="loopYears()" class="hidden"/>
-    <rect x="252.873442622951" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1964" onclick="loopYears()" class="hidden"/>
-    <rect x="255.68262295082" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1965" onclick="loopYears()" class="hidden"/>
-    <rect x="258.491803278689" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1966" onclick="loopYears()" class="hidden"/>
-    <rect x="261.300983606557" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1967" onclick="loopYears()" class="hidden"/>
-    <rect x="264.110163934426" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1968" onclick="loopYears()" class="hidden"/>
-    <rect x="266.919344262295" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1969" onclick="loopYears()" class="hidden"/>
-    <rect x="269.728524590164" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1970" onclick="loopYears()" class="hidden"/>
-    <rect x="272.537704918033" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1971" onclick="loopYears()" class="hidden"/>
-    <rect x="275.346885245902" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1972" onclick="loopYears()" class="hidden"/>
-    <rect x="278.15606557377" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1973" onclick="loopYears()" class="hidden"/>
-    <rect x="280.965245901639" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1974" onclick="loopYears()" class="hidden"/>
-    <rect x="283.774426229508" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1975" onclick="loopYears()" class="hidden"/>
-    <rect x="286.583606557377" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1976" onclick="loopYears()" class="hidden"/>
-    <rect x="289.392786885246" y="266.56" height="15" width="2.80918032786885" fill="rgb(255,0,0)" stroke="none" fill-opacity="0.8" id="rect1977" onclick="loopYears()" class="hidden"/>
-    <rect x="292.201967213115" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1978" onclick="loopYears()" class="hidden"/>
-    <rect x="295.011147540984" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1979" onclick="loopYears()" class="hidden"/>
-    <rect x="297.820327868852" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1980" onclick="loopYears()" class="hidden"/>
-    <rect x="300.629508196721" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1981" onclick="loopYears()" class="hidden"/>
-    <rect x="303.43868852459" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1982" onclick="loopYears()" class="hidden"/>
-    <rect x="306.247868852459" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1983" onclick="loopYears()" class="hidden"/>
-    <rect x="309.057049180328" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1984" onclick="loopYears()" class="hidden"/>
-    <rect x="311.866229508197" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1985" onclick="loopYears()" class="hidden"/>
-    <rect x="314.675409836066" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1986" onclick="loopYears()" class="hidden"/>
-    <rect x="317.484590163934" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1987" onclick="loopYears()" class="hidden"/>
-    <rect x="320.293770491803" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1988" onclick="loopYears()" class="hidden"/>
-    <rect x="323.102950819672" y="266.56" height="15" width="2.80918032786885" fill="rgb(255,0,0)" stroke="none" fill-opacity="0.8" id="rect1989" onclick="loopYears()" class="hidden"/>
-    <rect x="325.912131147541" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1990" onclick="loopYears()" class="hidden"/>
-    <rect x="328.72131147541" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1991" onclick="loopYears()" class="hidden"/>
-    <rect x="331.530491803279" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1992" onclick="loopYears()" class="hidden"/>
-    <rect x="334.339672131148" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1993" onclick="loopYears()" class="hidden"/>
-    <rect x="337.148852459016" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1994" onclick="loopYears()" class="hidden"/>
-    <rect x="339.958032786885" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1995" onclick="loopYears()" class="hidden"/>
-    <rect x="342.767213114754" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1996" onclick="loopYears()" class="hidden"/>
-    <rect x="345.576393442623" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1997" onclick="loopYears()" class="hidden"/>
-    <rect x="348.385573770492" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1998" onclick="loopYears()" class="hidden"/>
-    <rect x="351.194754098361" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect1999" onclick="loopYears()" class="hidden"/>
-    <rect x="354.00393442623" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2000" onclick="loopYears()" class="hidden"/>
-    <rect x="356.813114754098" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2001" onclick="loopYears()" class="hidden"/>
-    <rect x="359.622295081967" y="266.56" height="15" width="2.80918032786885" fill="rgb(255,0,0)" stroke="none" fill-opacity="0.8" id="rect2002" onclick="loopYears()" class="hidden"/>
-    <rect x="362.431475409836" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2003" onclick="loopYears()" class="hidden"/>
-    <rect x="365.240655737705" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2004" onclick="loopYears()" class="hidden"/>
-    <rect x="368.049836065574" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2005" onclick="loopYears()" class="hidden"/>
-    <rect x="370.859016393443" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2006" onclick="loopYears()" class="hidden"/>
-    <rect x="373.668196721312" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2007" onclick="loopYears()" class="hidden"/>
-    <rect x="376.47737704918" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2008" onclick="loopYears()" class="hidden"/>
-    <rect x="379.286557377049" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2009" onclick="loopYears()" class="hidden"/>
-    <rect x="382.095737704918" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2010" onclick="loopYears()" class="hidden"/>
-    <rect x="384.904918032787" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2011" onclick="loopYears()" class="hidden"/>
-    <rect x="387.714098360656" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2012" onclick="loopYears()" class="hidden"/>
-    <rect x="390.523278688525" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2013" onclick="loopYears()" class="hidden"/>
-    <rect x="393.332459016393" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2014" onclick="loopYears()" class="hidden"/>
-    <rect x="396.141639344262" y="266.56" height="15" width="2.80918032786885" fill="rgb(51,51,51)" stroke="none" fill-opacity="0.8" id="rect2015" onclick="loopYears()" class="hidden"/>
+    <rect x="59.04" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1895" onclick="loopYears()" class="hidden"/>
+    <rect x="61.8723966942149" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1896" onclick="loopYears()" class="hidden"/>
+    <rect x="64.7047933884297" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1897" onclick="loopYears()" class="hidden"/>
+    <rect x="67.5371900826446" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1898" onclick="loopYears()" class="hidden"/>
+    <rect x="70.3695867768595" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1899" onclick="loopYears()" class="hidden"/>
+    <rect x="87.3639669421488" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1905" onclick="loopYears()" class="hidden"/>
+    <rect x="90.1963636363636" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1906" onclick="loopYears()" class="hidden"/>
+    <rect x="93.0287603305785" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1907" onclick="loopYears()" class="hidden"/>
+    <rect x="95.8611570247934" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1908" onclick="loopYears()" class="hidden"/>
+    <rect x="98.6935537190083" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1909" onclick="loopYears()" class="hidden"/>
+    <rect x="101.525950413223" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1910" onclick="loopYears()" class="hidden"/>
+    <rect x="104.358347107438" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1911" onclick="loopYears()" class="hidden"/>
+    <rect x="107.190743801653" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1912" onclick="loopYears()" class="hidden"/>
+    <rect x="110.023140495868" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1913" onclick="loopYears()" class="hidden"/>
+    <rect x="112.855537190083" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1914" onclick="loopYears()" class="hidden"/>
+    <rect x="115.687933884298" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1915" onclick="loopYears()" class="hidden"/>
+    <rect x="118.520330578512" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1916" onclick="loopYears()" class="hidden"/>
+    <rect x="121.352727272727" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1917" onclick="loopYears()" class="hidden"/>
+    <rect x="124.185123966942" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1918" onclick="loopYears()" class="hidden"/>
+    <rect x="127.017520661157" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1919" onclick="loopYears()" class="hidden"/>
+    <rect x="129.849917355372" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1920" onclick="loopYears()" class="hidden"/>
+    <rect x="132.682314049587" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1921" onclick="loopYears()" class="hidden"/>
+    <rect x="135.514710743802" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1922" onclick="loopYears()" class="hidden"/>
+    <rect x="138.347107438017" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1923" onclick="loopYears()" class="hidden"/>
+    <rect x="141.179504132231" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1924" onclick="loopYears()" class="hidden"/>
+    <rect x="144.011900826446" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1925" onclick="loopYears()" class="hidden"/>
+    <rect x="146.844297520661" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1926" onclick="loopYears()" class="hidden"/>
+    <rect x="149.676694214876" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1927" onclick="loopYears()" class="hidden"/>
+    <rect x="152.509090909091" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1928" onclick="loopYears()" class="hidden"/>
+    <rect x="155.341487603306" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1929" onclick="loopYears()" class="hidden"/>
+    <rect x="158.173884297521" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1930" onclick="loopYears()" class="hidden"/>
+    <rect x="161.006280991736" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1931" onclick="loopYears()" class="hidden"/>
+    <rect x="163.83867768595" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1932" onclick="loopYears()" class="hidden"/>
+    <rect x="166.671074380165" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1933" onclick="loopYears()" class="hidden"/>
+    <rect x="169.50347107438" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect1934" onclick="loopYears()" class="hidden"/>
+    <rect x="172.335867768595" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1935" onclick="loopYears()" class="hidden"/>
+    <rect x="175.16826446281" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1936" onclick="loopYears()" class="hidden"/>
+    <rect x="178.000661157025" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1937" onclick="loopYears()" class="hidden"/>
+    <rect x="180.83305785124" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1938" onclick="loopYears()" class="hidden"/>
+    <rect x="183.665454545455" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1939" onclick="loopYears()" class="hidden"/>
+    <rect x="186.497851239669" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1940" onclick="loopYears()" class="hidden"/>
+    <rect x="189.330247933884" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1941" onclick="loopYears()" class="hidden"/>
+    <rect x="192.162644628099" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1942" onclick="loopYears()" class="hidden"/>
+    <rect x="194.995041322314" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1943" onclick="loopYears()" class="hidden"/>
+    <rect x="197.827438016529" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1944" onclick="loopYears()" class="hidden"/>
+    <rect x="200.659834710744" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1945" onclick="loopYears()" class="hidden"/>
+    <rect x="203.492231404959" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1946" onclick="loopYears()" class="hidden"/>
+    <rect x="206.324628099174" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1947" onclick="loopYears()" class="hidden"/>
+    <rect x="209.157024793388" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1948" onclick="loopYears()" class="hidden"/>
+    <rect x="211.989421487603" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1949" onclick="loopYears()" class="hidden"/>
+    <rect x="214.821818181818" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1950" onclick="loopYears()" class="hidden"/>
+    <rect x="217.654214876033" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1951" onclick="loopYears()" class="hidden"/>
+    <rect x="220.486611570248" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1952" onclick="loopYears()" class="hidden"/>
+    <rect x="223.319008264463" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1953" onclick="loopYears()" class="hidden"/>
+    <rect x="226.151404958678" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1954" onclick="loopYears()" class="hidden"/>
+    <rect x="228.983801652893" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1955" onclick="loopYears()" class="hidden"/>
+    <rect x="231.816198347107" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1956" onclick="loopYears()" class="hidden"/>
+    <rect x="234.648595041322" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1957" onclick="loopYears()" class="hidden"/>
+    <rect x="237.480991735537" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1958" onclick="loopYears()" class="hidden"/>
+    <rect x="240.313388429752" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1959" onclick="loopYears()" class="hidden"/>
+    <rect x="243.145785123967" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1960" onclick="loopYears()" class="hidden"/>
+    <rect x="245.978181818182" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1961" onclick="loopYears()" class="hidden"/>
+    <rect x="248.810578512397" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1962" onclick="loopYears()" class="hidden"/>
+    <rect x="251.642975206612" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect1963" onclick="loopYears()" class="hidden"/>
+    <rect x="254.475371900826" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1964" onclick="loopYears()" class="hidden"/>
+    <rect x="257.307768595041" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1965" onclick="loopYears()" class="hidden"/>
+    <rect x="260.140165289256" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1966" onclick="loopYears()" class="hidden"/>
+    <rect x="262.972561983471" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1967" onclick="loopYears()" class="hidden"/>
+    <rect x="265.804958677686" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1968" onclick="loopYears()" class="hidden"/>
+    <rect x="268.637355371901" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1969" onclick="loopYears()" class="hidden"/>
+    <rect x="271.469752066116" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1970" onclick="loopYears()" class="hidden"/>
+    <rect x="274.302148760331" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1971" onclick="loopYears()" class="hidden"/>
+    <rect x="277.134545454546" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1972" onclick="loopYears()" class="hidden"/>
+    <rect x="279.96694214876" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1973" onclick="loopYears()" class="hidden"/>
+    <rect x="282.799338842975" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1974" onclick="loopYears()" class="hidden"/>
+    <rect x="285.63173553719" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1975" onclick="loopYears()" class="hidden"/>
+    <rect x="288.464132231405" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1976" onclick="loopYears()" class="hidden"/>
+    <rect x="291.29652892562" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect1977" onclick="loopYears()" class="hidden"/>
+    <rect x="294.128925619835" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1978" onclick="loopYears()" class="hidden"/>
+    <rect x="296.96132231405" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1979" onclick="loopYears()" class="hidden"/>
+    <rect x="299.793719008264" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1980" onclick="loopYears()" class="hidden"/>
+    <rect x="302.626115702479" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1981" onclick="loopYears()" class="hidden"/>
+    <rect x="305.458512396694" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1982" onclick="loopYears()" class="hidden"/>
+    <rect x="308.290909090909" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1983" onclick="loopYears()" class="hidden"/>
+    <rect x="311.123305785124" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1984" onclick="loopYears()" class="hidden"/>
+    <rect x="313.955702479339" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1985" onclick="loopYears()" class="hidden"/>
+    <rect x="316.788099173554" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1986" onclick="loopYears()" class="hidden"/>
+    <rect x="319.620495867769" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1987" onclick="loopYears()" class="hidden"/>
+    <rect x="322.452892561984" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1988" onclick="loopYears()" class="hidden"/>
+    <rect x="325.285289256198" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect1989" onclick="loopYears()" class="hidden"/>
+    <rect x="328.117685950413" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1990" onclick="loopYears()" class="hidden"/>
+    <rect x="330.950082644628" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1991" onclick="loopYears()" class="hidden"/>
+    <rect x="333.782479338843" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1992" onclick="loopYears()" class="hidden"/>
+    <rect x="336.614876033058" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1993" onclick="loopYears()" class="hidden"/>
+    <rect x="339.447272727273" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1994" onclick="loopYears()" class="hidden"/>
+    <rect x="342.279669421488" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1995" onclick="loopYears()" class="hidden"/>
+    <rect x="345.112066115703" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1996" onclick="loopYears()" class="hidden"/>
+    <rect x="347.944462809917" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1997" onclick="loopYears()" class="hidden"/>
+    <rect x="350.776859504132" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1998" onclick="loopYears()" class="hidden"/>
+    <rect x="353.609256198347" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1999" onclick="loopYears()" class="hidden"/>
+    <rect x="356.441652892562" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2000" onclick="loopYears()" class="hidden"/>
+    <rect x="359.274049586777" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2001" onclick="loopYears()" class="hidden"/>
+    <rect x="362.106446280992" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect2002" onclick="loopYears()" class="hidden"/>
+    <rect x="364.938842975207" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2003" onclick="loopYears()" class="hidden"/>
+    <rect x="367.771239669422" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2004" onclick="loopYears()" class="hidden"/>
+    <rect x="370.603636363636" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2005" onclick="loopYears()" class="hidden"/>
+    <rect x="373.436033057851" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2006" onclick="loopYears()" class="hidden"/>
+    <rect x="376.268429752066" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2007" onclick="loopYears()" class="hidden"/>
+    <rect x="379.100826446281" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2008" onclick="loopYears()" class="hidden"/>
+    <rect x="381.933223140496" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2009" onclick="loopYears()" class="hidden"/>
+    <rect x="384.765619834711" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2010" onclick="loopYears()" class="hidden"/>
+    <rect x="387.598016528926" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2011" onclick="loopYears()" class="hidden"/>
+    <rect x="390.430413223141" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2012" onclick="loopYears()" class="hidden"/>
+    <rect x="393.262809917355" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2013" onclick="loopYears()" class="hidden"/>
+    <rect x="396.09520661157" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2014" onclick="loopYears()" class="hidden"/>
+    <rect x="398.927603305785" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2015" onclick="loopYears()" class="hidden"/>
+    <path d="M 59.04,281.56 h 342.72" stroke="black" id="box-axis"/>
   </g>
   <script type="text/ecmascript"><![CDATA[function loopYears(){
       clearInterval(window.myInterval);
@@ -591,10 +600,10 @@ text {
                     function ghostYear(year){
                     if (document.getElementById('Yr'+year).parentNode.getAttribute('stroke') ===  'rgb(51,51,51)'){
                     document.getElementById('Yr'+year).setAttribute('class','ghost');
-                    document.getElementById('rect'+year).setAttribute('class','ghost');
+                    document.getElementById('rect'+year).setAttribute('class','ghost-box');
                     } else {
                     document.getElementById('Yr'+year).setAttribute('class','em-ghost');
-                    document.getElementById('rect'+year).setAttribute('class','em-ghost');
+                    document.getElementById('rect'+year).setAttribute('class','em-ghost-box');
                     }
                     }
                     legendText(' ');
