@@ -2,7 +2,8 @@
 
 library(dataRetrieval)
 library(EGRET)
-
+site = "09315000"#'09380000'# was "09315000"
+param = '00060' # was 00060
 # functions used in the code
 # I currently commented out the "water years" offset and this is running off of calendar years.  
 # If you want to change that, be sure and change ALL references to Daily$Day to Daily$WtrDay.
@@ -57,7 +58,7 @@ recentyears = as.vector(1936:2014)
 # Section that actually does things.
 # Daily variable is the thing to change.
 
-Daily = readNWISDaily("09315000",parameterCd ='00060')
+Daily = readNWISDaily(site,parameterCd =param)
 Daily = Daily[ which(Daily$Day != 60), ]
 dates=Daily$Date
 JulianDay = Daily$Day
@@ -250,7 +251,7 @@ font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }"
 #change to cubic feet per second
 #rm grey background, add titles
-gs$view.1.2$window$ylab = "Cubic Feet per Second"
+gs$view.1.2$window$ylab = "Cubic Meters per Second"
 gs$view.1.2$window$xlab = "Month"
 gs$ecmascript <- ecma.text
 gs$css <- style.text
