@@ -7,49 +7,49 @@
 transition: opacity 0.4s ease-in-out;
 }
 .hidden {
-    opacity:0;
+opacity:0;
 }
 .em-shown {
-  		stroke-width: 2;
+stroke-width: 2;
 }
 .shown {
-    stroke-width: 1.5;
+stroke-width: 1.5;
 }
 .ghost, .ghost-box {
-  		opacity:0.05;
-        -webkit-transition: opacity 1s ease-in-out;
-        -moz-transition: opacity 1s ease-in-out;
-        -o-transition: opacity 1s ease-in-out;
-        transition: opacity 1s ease-in-out;
-        -webkit-transition: stroke-width 0.5s ease-in-out;
-        -moz-transition: stroke-width 0.5s ease-in-out;
-        -o-transition: stroke-width 0.5s ease-in-out;
-        transition: stroke-width 0.5s ease-in-out;
+opacity:0.05;
+-webkit-transition: opacity 1s ease-in-out;
+-moz-transition: opacity 1s ease-in-out;
+-o-transition: opacity 1s ease-in-out;
+transition: opacity 1s ease-in-out;
+-webkit-transition: stroke-width 0.5s ease-in-out;
+-moz-transition: stroke-width 0.5s ease-in-out;
+-o-transition: stroke-width 0.5s ease-in-out;
+transition: stroke-width 0.5s ease-in-out;
 }
 .em-ghost, .em-ghost-box {
-  		opacity:0.5;
-        -webkit-transition: opacity 4.0s ease-in-out;
-        -moz-transition: opacity 4.0s ease-in-out;
-        -o-transition: opacity 4.0s ease-in-out;
-        transition: opacity 4.0s ease-in-out;
-        -webkit-transition: stroke-width 0.5s ease-in-out;
-        -moz-transition: stroke-width 0.5s ease-in-out;
-        -o-transition: stroke-width 0.5s ease-in-out;
-        transition: stroke-width 0.5s ease-in-out;
+opacity:0.5;
+-webkit-transition: opacity 4.0s ease-in-out;
+-moz-transition: opacity 4.0s ease-in-out;
+-o-transition: opacity 4.0s ease-in-out;
+transition: opacity 4.0s ease-in-out;
+-webkit-transition: stroke-width 0.5s ease-in-out;
+-moz-transition: stroke-width 0.5s ease-in-out;
+-o-transition: stroke-width 0.5s ease-in-out;
+transition: stroke-width 0.5s ease-in-out;
 }
 .em-ghost {
-        stroke-width: 1;
+stroke-width: 1;
 }
 .em-ghost-box{
-        stroke-width: 0;
+stroke-width: 0;
 }
 .ghost-box {
-		stroke: none;
+stroke: none;
 }
 text {
-    font-size: 0.8em;
-    cursor: default;
-    font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 0.8em;
+cursor: default;
+font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }</style>
   <g id="view-1-2">
     <defs>
@@ -464,6 +464,7 @@ text {
     <rect x="64.7047933884297" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1897" onclick="loopYears()" class="hidden"/>
     <rect x="67.5371900826446" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1898" onclick="loopYears()" class="hidden"/>
     <rect x="70.3695867768595" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1899" onclick="loopYears()" class="hidden"/>
+    <text x="74.6181818181818" y="281.56" text-anchor="middle" dy="1.0em" id="label-1900">1900</text>
     <rect x="87.3639669421488" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1905" onclick="loopYears()" class="hidden"/>
     <rect x="90.1963636363636" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1906" onclick="loopYears()" class="hidden"/>
     <rect x="93.0287603305785" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1907" onclick="loopYears()" class="hidden"/>
@@ -480,6 +481,7 @@ text {
     <rect x="124.185123966942" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1918" onclick="loopYears()" class="hidden"/>
     <rect x="127.017520661157" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1919" onclick="loopYears()" class="hidden"/>
     <rect x="129.849917355372" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1920" onclick="loopYears()" class="hidden"/>
+    <text x="131.266115702479" y="281.56" text-anchor="middle" dy="1.0em" id="label-1920">1920</text>
     <rect x="132.682314049587" y="266.56" height="15" width="2.83239669421488" fill="rgb(0,0,255)" stroke="rgb(0,0,255)" fill-opacity="0.8" id="rect1921" onclick="loopYears()" class="hidden"/>
     <rect x="135.514710743802" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1922" onclick="loopYears()" class="hidden"/>
     <rect x="138.347107438017" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1923" onclick="loopYears()" class="hidden"/>
@@ -500,6 +502,7 @@ text {
     <rect x="180.83305785124" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1938" onclick="loopYears()" class="hidden"/>
     <rect x="183.665454545455" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1939" onclick="loopYears()" class="hidden"/>
     <rect x="186.497851239669" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1940" onclick="loopYears()" class="hidden"/>
+    <text x="187.914049586777" y="281.56" text-anchor="middle" dy="1.0em" id="label-1940">1940</text>
     <rect x="189.330247933884" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1941" onclick="loopYears()" class="hidden"/>
     <rect x="192.162644628099" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1942" onclick="loopYears()" class="hidden"/>
     <rect x="194.995041322314" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1943" onclick="loopYears()" class="hidden"/>
@@ -520,6 +523,7 @@ text {
     <rect x="237.480991735537" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1958" onclick="loopYears()" class="hidden"/>
     <rect x="240.313388429752" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1959" onclick="loopYears()" class="hidden"/>
     <rect x="243.145785123967" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1960" onclick="loopYears()" class="hidden"/>
+    <text x="244.561983471074" y="281.56" text-anchor="middle" dy="1.0em" id="label-1960">1960</text>
     <rect x="245.978181818182" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1961" onclick="loopYears()" class="hidden"/>
     <rect x="248.810578512397" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1962" onclick="loopYears()" class="hidden"/>
     <rect x="251.642975206612" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect1963" onclick="loopYears()" class="hidden"/>
@@ -540,6 +544,7 @@ text {
     <rect x="294.128925619835" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1978" onclick="loopYears()" class="hidden"/>
     <rect x="296.96132231405" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1979" onclick="loopYears()" class="hidden"/>
     <rect x="299.793719008264" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1980" onclick="loopYears()" class="hidden"/>
+    <text x="301.209917355372" y="281.56" text-anchor="middle" dy="1.0em" id="label-1980">1980</text>
     <rect x="302.626115702479" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1981" onclick="loopYears()" class="hidden"/>
     <rect x="305.458512396694" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1982" onclick="loopYears()" class="hidden"/>
     <rect x="308.290909090909" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1983" onclick="loopYears()" class="hidden"/>
@@ -560,6 +565,7 @@ text {
     <rect x="350.776859504132" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1998" onclick="loopYears()" class="hidden"/>
     <rect x="353.609256198347" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect1999" onclick="loopYears()" class="hidden"/>
     <rect x="356.441652892562" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2000" onclick="loopYears()" class="hidden"/>
+    <text x="357.857851239669" y="281.56" text-anchor="middle" dy="1.0em" id="label-2000">2000</text>
     <rect x="359.274049586777" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2001" onclick="loopYears()" class="hidden"/>
     <rect x="362.106446280992" y="266.56" height="15" width="2.83239669421488" fill="rgb(255,0,0)" stroke="rgb(255,0,0)" fill-opacity="0.8" id="rect2002" onclick="loopYears()" class="hidden"/>
     <rect x="364.938842975207" y="266.56" height="15" width="2.83239669421488" fill="rgb(51,51,51)" stroke="rgb(51,51,51)" fill-opacity="0.8" id="rect2003" onclick="loopYears()" class="hidden"/>

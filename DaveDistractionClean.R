@@ -292,15 +292,18 @@ for (year in all.years){
                attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=top.box, height=box.h, width=box.w, fill=xmlAttrs(g.node)[['stroke']], 
                        stroke=xmlAttrs(g.node)[['stroke']], 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
     
+    
   }
   if (year == tail(all.years,1)){
     newXMLNode(name = 'path', parent = xpathApply(g.node,'parent::node()')[[1]],
-               attrs=c(d=sprintf('M %s,%s h %s',view.bounds[['x']], bot.box+box.h, view.bounds[['width']]),stroke="black", id='box-axis')) #
+               attrs=c(d=sprintf('M %s,%s h %s',view.bounds[['x']], top.box+box.h, view.bounds[['width']]),stroke="black", id='box-axis')) #
     #lines!!
   }
+  rm(g.node)
   if (year %in% yr.text){
-    dinosvg:::svg_node("text", xpathApply(g.node,'parent::node()')[[1]], c(x=view.bounds[['x']]+(i-1)*box.w/2, y=top.box+box.h, 'text-anchor'='middle', 
-                                                                           dy="1.0em"), newXMLTextNode(year), id=paste0("label-",year))  
+    newXMLNode(name = "text", parent = xpathApply(legend.g,'parent::node()')[[1]], 
+               attrs=c(x=view.bounds[['x']]+(i-1)*box.w+box.w/2, y=top.box+box.h, 'text-anchor'='middle',
+                       dy="1.0em", id=paste0("label-",year)), newXMLTextNode(year))  
   }
 }
 saveXML(svg, file = "Rplot.svg")
