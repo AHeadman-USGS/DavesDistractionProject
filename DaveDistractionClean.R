@@ -143,7 +143,9 @@ ylim <- ylim(gs)$side.2
 xlim <- xlim(gs)$side.1
 gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335), 
            labels=c('Jan','Feb','Mar','Apr','May','June','Jul','Aug','Sep','Oct','Nov','Dec')) %>% 
-  text(x=xlim[1],y=ylim[2],labels=" ", id='legend-text')
+  axis(side=2, at=c(500,1000,1500)) %>% 
+  text(x=xlim[1],y=ylim[2],labels=" ")
+gs$view.1.2$text$id='legend-text' # hack because we don't have a gsplot extension to allow 'id'
 
 
 # note: hand editing the ecmascript, and handediting the legend element
@@ -251,8 +253,8 @@ font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }"
 #change to cubic feet per second
 #rm grey background, add titles
-gs$view.1.2$window$ylab = "Cubic Meters per Second"
-gs$view.1.2$window$xlab = "Month"
+gs$side.2$label = "Cubic Meters per Second"
+gs$side.1$label = "Month"
 gs$ecmascript <- ecma.text
 gs$css <- style.text
 save(gs, file='testDave.RData')
@@ -274,7 +276,7 @@ addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::no
 # now get the bounds and add some new things...
 g.view <- dinosvg:::g_view(svg,c(1,2))
 view.bounds <- dinosvg:::view_bounds(g.view)
-
+rm(g.view)
 all.years <- seq(min(WaterYearsVectSHORT), max(WaterYearsVectSHORT))
 box.w <- view.bounds[['width']]/(length(all.years))
 
