@@ -1,7 +1,10 @@
+
 ##Loading necessary libraries
 
 library(dataRetrieval)
 library(EGRET)
+stopifnot(packageVersion('dinosvg') == '0.1.9')
+stopifnot(packageVersion('gsplot') == '0.4.4')
 site = "09315000"#'09380000'# was "09315000"
 param = '00060' # was 00060
 # functions used in the code
