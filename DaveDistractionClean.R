@@ -136,16 +136,22 @@ WaterYearsVectSHORT <- WaterYearsVect#[1:30] # for debugging
 # to do: filter out NAs before creating lines
 for (i in WaterYearsVectSHORT){
   pltName = paste( 'Yr', i, sep = '' )
+  col = "grey20"
   if (match(i, HighYrs, nomatch = 0) > 0){ 
-    gs = lines(gs, df[,1], df[[pltName]], col = "blue", id = pltName, class='hidden')
+    col = "blue"
   } else if (match(i, LowYrs, nomatch = 0) > 0){
-    gs = lines(gs, df[,1], df[[pltName]],col = "red", id = pltName, class='hidden')
-  } else{
-    gs = lines(gs, df[,1], df[[pltName]],col = "grey20", opacity='0.8', id = pltName, class='hidden')
+    col = "red"
+  } 
+  gs = lines(gs, df[,1], df[[pltName]],col = col)
+  update.i <- tail(which(names(gs$view.1.2) == 'lines'),1)
+  gs$view.1.2[[update.i]]$id <- pltName
+  gs$view.1.2[[update.i]]$class <- 'hidden'
+  if (col == 'grey20'){
+    gs$view.1.2[[update.i]]$opacity <- '0.8'
   }
 }
-ylim <- ylim(gs)$side.2
-xlim <- xlim(gs)$side.1
+ylim <- ylim(gs, 2)
+xlim <- xlim(gs, 1)
 gs <- axis(gs, side=1, at = c(1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335), 
            labels=c('Jan','Feb','Mar','Apr','May','June','Jul','Aug','Sep','Oct','Nov','Dec')) %>% 
   axis(side=2, at=c(500,1000,1500)) %>% 
@@ -275,7 +281,7 @@ newXMLNode(name = 'rect', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(x="360", y="70", height="20", width="30", fill="#abccab", stroke="#abccab", 'fill-opacity'="0.4", onclick="loopYears()"))
 newXMLNode(name = 'path', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(d="M 370,74 L383,80 L370,86z ", fill="#abccab", stroke="none", onclick="loopYears()"))
-addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[1]], .attrs = c(dy="-3.0em"))
+addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[1]], .attrs = c(dy="-2.0em"))
 
 
 # now get the bounds and add some new things...
