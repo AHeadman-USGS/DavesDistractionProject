@@ -3,6 +3,7 @@
 
 library(dataRetrieval)
 library(EGRET)
+fileout <- 'distraction.svg'
 
 if (!require(dinosvg) || packageVersion('dinosvg') != '0.2.1'){
   devtools::install_github('jread-usgs/dinosvg@2447360160c7d9c0b733e1e98c009acebf6c80d8') 
@@ -275,15 +276,16 @@ gs$side.2$label = "Cubic Meters per Second"
 gs$side.1$label = " "
 gs$ecmascript <- ecma.text
 gs$css <- style.text
-save(gs, file='testDave.RData')
-svg(gs, file = "Rplot.svg")
+svg(gs, file = fileout)
 
 # now read in the svg and manipulate it 
 library(XML)
-svg <- xmlParse("Rplot.svg", useInternalNode=TRUE)
+svg <- xmlParse(fileout, useInternalNode=TRUE)
 legend.g <- xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']","legend-text"))[[1]]
 removeAttributes(legend.g, .attrs = 'id')
 addAttributes(xpathApply(legend.g,'child::node()')[[1]], .attrs = c('id'="legend-text",dy="1.0em", dx="0.5em", 'text-anchor'='begin' ))#?
+
+# this is the play button:
 newXMLNode(name = 'rect', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(x="360", y="70", height="20", width="30", fill="#abccab", stroke="#abccab", 'fill-opacity'="0.4", onclick="loopYears()"))
 newXMLNode(name = 'path', parent = xpathApply(legend.g,'parent::node()')[[1]],
@@ -309,16 +311,14 @@ for (year in all.years){
   id <- paste0("Yr",year)
   g.node <- xpathApply(svg, sprintf("//*[local-name()='path'][@id='%s']/parent::node()",id))[[1]]
   if (!is.null(g.node)){
+    # add a rectangle at the base of the figure for each year, color appropriately:
     newXMLNode(name = 'rect', parent = xpathApply(g.node,'parent::node()')[[1]],
                attrs=c(x=view.bounds[['x']]+(i-1)*box.w, y=top.box, height=box.h, width=box.w, fill=xmlAttrs(g.node)[['stroke']], 
                        stroke=xmlAttrs(g.node)[['stroke']], 'fill-opacity'="0.8", id=paste0("rect",year), onclick="loopYears()", class='hidden')) #
-    
-    
   }
   if (year == tail(all.years,1)){
     newXMLNode(name = 'path', parent = xpathApply(g.node,'parent::node()')[[1]],
                attrs=c(d=sprintf('M %s,%s h %s',view.bounds[['x']], top.box+box.h, view.bounds[['width']]),stroke="black", id='box-axis')) #
-    #lines!!
   }
   rm(g.node)
   if (year %in% yr.text){
@@ -327,4 +327,4 @@ for (year in all.years){
                        dy="1.0em", id=paste0("label-",year)), newXMLTextNode(year))  
   }
 }
-saveXML(svg, file = "Rplot.svg")
+saveXML(svg, file = fileout)
