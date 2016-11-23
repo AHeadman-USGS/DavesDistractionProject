@@ -3,10 +3,14 @@
 
 library(dataRetrieval)
 library(EGRET)
-#devtools::install_github('jread-usgs/dinosvg@2447360160c7d9c0b733e1e98c009acebf6c80d8')
-#devtools::install_github('USGS-R/gsplot@5519cfb6c19429e13a89d71593e81c4b46cc037b')
-stopifnot(packageVersion('dinosvg') == '0.2.1')
-stopifnot(packageVersion('gsplot') == '0.6.1') 
+
+if (!require(dinosvg) || packageVersion('dinosvg') != '0.2.1'){
+  devtools::install_github('jread-usgs/dinosvg@2447360160c7d9c0b733e1e98c009acebf6c80d8') 
+}
+if (!require(gsplot) || packageVersion('gsplot') != '0.6.1'){
+  devtools::install_github('USGS-R/gsplot@5519cfb6c19429e13a89d71593e81c4b46cc037b')
+}
+
 site = "09315000"#'09380000'# was "09315000"
 param = '00060' # was 00060
 # functions used in the code
