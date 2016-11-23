@@ -221,6 +221,9 @@ style.text = ".em-shown, .hidden, .shown {
 -o-transition: opacity 0.4s ease-in-out;
 transition: opacity 0.4s ease-in-out;
 }
+#ticks{
+  stroke:black;
+}
 .hidden {
 opacity:0;
 }
@@ -269,7 +272,7 @@ font-family: Roboto, Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 #change to cubic feet per second
 #rm grey background, add titles
 gs$side.2$label = "Cubic Meters per Second"
-gs$side.1$label = "Month"
+gs$side.1$label = " "
 gs$ecmascript <- ecma.text
 gs$css <- style.text
 save(gs, file='testDave.RData')
@@ -285,7 +288,7 @@ newXMLNode(name = 'rect', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(x="360", y="70", height="20", width="30", fill="#abccab", stroke="#abccab", 'fill-opacity'="0.4", onclick="loopYears()"))
 newXMLNode(name = 'path', parent = xpathApply(legend.g,'parent::node()')[[1]],
            attrs=c(d="M 370,74 L383,80 L370,86z ", fill="#abccab", stroke="none", onclick="loopYears()"))
-addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[1]], .attrs = c(dy="-2.0em"))
+addAttributes(xpathApply(svg, sprintf("//*[local-name()='g'][@id='%s']/child::node()","axis-label"))[[2]], .attrs = c(dy="-3.0em"))
 
 
 # now get the bounds and add some new things...
